@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3134220404500559679
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -72.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -88.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934782816230840517, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225340642374679693, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_Name
+      value: PrimetiveHDRPurple Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453538859334595707, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7405fd9f237a4c418661d35544180f8, type: 2}
+    m_RemovedComponents:
+    - {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 88267df3fd97b4148b673c1fbcb03074, type: 3}

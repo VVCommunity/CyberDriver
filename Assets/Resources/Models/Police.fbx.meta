@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 0d89c6bb365ce3641abe2e85e7827d16
+ModelImporter:
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      74: -984814896074409217
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.000
+  - first:
+      74: 1762996189889450054
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.001
+  - first:
+      74: -881307165794512659
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.002
+  - first:
+      74: 2742014239639001357
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.003
+  - first:
+      74: -2721686982750938639
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.004
+  - first:
+      74: 2115180491983046642
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.005
+  - first:
+      74: -8725698706458378582
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.006
+  - first:
+      74: -2482010407902195734
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.007
+  - first:
+      74: -2745717714346878447
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.008
+  - first:
+      74: 1241156801926592959
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.009
+  - first:
+      74: 3099945050942765281
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.010
+  - first:
+      74: -4137116570191797936
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.011
+  - first:
+      74: 8051770638192785302
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.012
+  - first:
+      74: -5861443902710450949
+    second: Geometry_Vehicle_HoverCar_A_LOD03.001|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_L
+  - first:
+      74: 1168421381489523364
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.000
+  - first:
+      74: -7063427373470572617
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.001
+  - first:
+      74: 6178696293815231318
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.002
+  - first:
+      74: -8602370260838765897
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.003
+  - first:
+      74: 5337504202408801352
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.004
+  - first:
+      74: -1838441645512855799
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.005
+  - first:
+      74: -3179904014135428943
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.006
+  - first:
+      74: 8391482234614523689
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.007
+  - first:
+      74: -1451268095737724146
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.008
+  - first:
+      74: -6884630681415096604
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.009
+  - first:
+      74: 28264114219754175
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.010
+  - first:
+      74: 6339220749895983974
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.011
+  - first:
+      74: -615191154954504265
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar.012
+  - first:
+      74: -2855172446855301273
+    second: Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_LOD03|Geometry_Vehicle_HoverCar_A_L
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
