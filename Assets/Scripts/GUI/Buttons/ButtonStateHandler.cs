@@ -5,9 +5,11 @@ namespace GUI.Buttons
 {
     public class ButtonStateHandler : MonoBehaviour
     {
-        public Sprite FirstStateSprite;
+        [SerializeField]
+        private Sprite FirstStateSprite;
 
-        public Sprite SecondStateSprite;
+        [SerializeField]
+        private Sprite SecondStateSprite;
 
         private Button button;
 
