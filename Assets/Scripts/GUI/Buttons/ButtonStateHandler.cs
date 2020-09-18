@@ -6,10 +6,10 @@ namespace GUI.Buttons
     public class ButtonStateHandler : MonoBehaviour
     {
         [SerializeField]
-        private readonly Sprite FirstStateSprite;
+        private Sprite FirstStateSprite;
 
         [SerializeField]
-        private readonly Sprite SecondStateSprite;
+        private Sprite SecondStateSprite;
 
         private Button button;
 
