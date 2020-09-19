@@ -1,16 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+namespace ScriptsForGameObjects.Camera
 {
-    [SerializeField]
-    private Car car;
-    [SerializeField]
-    private Vector3 offSet;
-
-    private void FixedUpdate()
+    public class CameraMovement : MonoBehaviour
     {
-        transform.position = offSet + car.transform.position;
+        [SerializeField]
+        private GameObject car;
+
+        private Vector3 offSet;
+
+        private void Awake()
+        {
+            offSet = transform.position - car.transform.position;
+        }
+
+        private void FixedUpdate()
+        {
+            transform.position = offSet + car.transform.position;
+        }
     }
 }

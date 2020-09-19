@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.LevelConstructing;
+using EasyButtons;
+using System;
 using UnityEngine;
 
 namespace Core
@@ -7,6 +9,7 @@ namespace Core
     {
         public static event Action OnGamePaused;
         public static event Action OnGameResumed;
+        public static event Action OnGameRestarted;
 
         public static bool IsGamePaused { get; private set; }
 
@@ -35,6 +38,13 @@ namespace Core
                 IsGamePaused = false;
                 OnGameResumed?.Invoke();
             }
+        }
+
+        [Button]
+        public static void Restart()
+        {
+            LevelConstructManager.ClearLevel();
+            LevelConstructManager.BuildLevel();
         }
     }
 }
