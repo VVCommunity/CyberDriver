@@ -2,6 +2,7 @@
     "name": "VX.Tools",
     "references": [],
     "includePlatforms": [
+        "Android",
         "Editor",
         "iOS",
         "LinuxStandalone64",

@@ -1,7 +1,8 @@
 {
     "name": "Core",
     "references": [
-        "GUID:95129fa2931be83479e523431111cf40"
+        "GUID:95129fa2931be83479e523431111cf40",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

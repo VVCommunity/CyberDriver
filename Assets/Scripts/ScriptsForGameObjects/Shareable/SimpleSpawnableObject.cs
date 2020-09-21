@@ -7,7 +7,9 @@ namespace Assets.Scripts.ScriptsForGameObjects.Shareable
     {
         private Vector3 position;
 
-        private void Awake()
+        public float Depth => 0;
+
+        public void Awake()
         {
             position = transform.position;
         }
