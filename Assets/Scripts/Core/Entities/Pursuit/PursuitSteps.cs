@@ -1,4 +1,4 @@
-﻿namespace Entities.Pursuit
+﻿namespace Core.Entities.Pursuit
 {
     public enum PursuitSteps
     {

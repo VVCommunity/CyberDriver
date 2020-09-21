@@ -1,5 +1,5 @@
 ﻿using EasyButtons;
-using Entities.Pursuit;
+using Core.Entities.Pursuit;
 using System;
 using UnityEngine;
 
