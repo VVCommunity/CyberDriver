@@ -97,6 +97,7 @@ namespace Core.LevelConstructing
             {
                 chunk.Unspawn();
             }
+            spawnedChunks.Clear();
         }
 
         [Button]
