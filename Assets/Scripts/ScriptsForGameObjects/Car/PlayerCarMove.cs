@@ -16,18 +16,9 @@ namespace ScriptsForGameObjects.Car
         private float forwardSpeed;
 
         [SerializeField]
-        private float leftXConstraint;
-        [SerializeField]
-        private float rightXConstraint;
-
-        [SerializeField]
         private Transform body;
 
-        private readonly int maxHeight = GameManager.MaxHeight;
-        private readonly int minHeight = GameManager.MinHeight;
-
         private float approximationFactor;
-        private static float distanceBetweenWalls = GameManager.DistanceBetweenWalls;
 
         new private Rigidbody rigidbody;
 
@@ -41,7 +32,7 @@ namespace ScriptsForGameObjects.Car
 
         public void Start()
         {
-            approximationFactor = 90f / (distanceBetweenWalls / 2);
+            approximationFactor = 90f / (GameManager.DistanceBetweenWalls / 2);
             targetPlanePosition = new Vector2(transform.position.x, transform.position.y);
         }
 
@@ -75,23 +66,23 @@ namespace ScriptsForGameObjects.Car
                         }
 
                         // Checking for contact with the left wall.
-                        if (transform.position.x >= distanceBetweenWalls / 2 && coercedDeltaTouch.x > 0)
+                        if (transform.position.x >= GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x > 0)
                         {
                             coercedDeltaTouch.x = 0;
                         }
                         // Checking for contact with the right wall.
-                        else if (transform.position.x <= -distanceBetweenWalls / 2 && coercedDeltaTouch.x < 0)
+                        else if (transform.position.x <= -GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x < 0)
                         {
                             coercedDeltaTouch.x = 0;
                         }
 
                         // Checking for contact with the upper bound.
-                        if (transform.position.y >= maxHeight && coercedDeltaTouch.y > 0) 
+                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0) 
                         {
                             coercedDeltaTouch.y = 0;
                         }
                         // Checking for contact with the lower bound.
-                        else if (transform.position.y <= minHeight && coercedDeltaTouch.y < 0) 
+                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0) 
                         {
                             coercedDeltaTouch.y = 0;
                         }
