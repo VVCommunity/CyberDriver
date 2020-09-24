@@ -12,6 +12,9 @@ namespace Core
         public static event Action OnGameRestarted;
 
         public static bool IsGamePaused { get; private set; }
+        public static float DistanceBetweenWalls { get; private set; } = 20;
+        public static float MinHeight { get; private set; } = 10;
+        public static float MaxHeight { get; private set; } = 30;
 
         private static float timeScaleBeforePause;
 
@@ -45,6 +48,7 @@ namespace Core
         {
             LevelConstructManager.ClearLevel();
             LevelConstructManager.BuildLevel();
+            OnGameRestarted?.Invoke();
         }
     }
 }
