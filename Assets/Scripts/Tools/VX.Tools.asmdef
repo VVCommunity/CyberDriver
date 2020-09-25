@@ -1,24 +1,10 @@
 {
     "name": "VX.Tools",
     "references": [],
-    "includePlatforms": [
-        "Android",
-        "Editor",
-        "iOS",
-        "LinuxStandalone64",
-        "Lumin",
-        "macOSStandalone",
-        "PS4",
-        "Stadia",
-        "Switch",
-        "tvOS",
-        "WSA",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64",
-        "XboxOne"
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "Android"
     ],
-    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
