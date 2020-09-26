@@ -1,7 +1,6 @@
 ﻿using Core;
 using System.Collections;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -19,25 +18,21 @@ namespace ScriptsForGameObjects.Car
         private float accelerationFactor = 0.5f;
         [SerializeField]
         private float gapBetweenAccelerations = 6f;
-        public float ForwardSpeed
-        {
-            get
-            {
-                return forwardSpeed;
-            }
-
-            set
-            {
-                if (value > 0)
-                {
-                    forwardSpeed = value;
-                }
-                //else ... Fuck, the game must be over??
-            }
-        }
-
         [SerializeField]
         private Transform body;
+
+        public float ForwardSpeed
+        {
+            get => forwardSpeed;
+            set
+            {
+                forwardSpeed = value;
+                if (forwardSpeed < 0)
+                {
+                    forwardSpeed = 0;
+                }
+            }
+        }
 
         private float approximationFactor;
 
@@ -93,12 +88,12 @@ namespace ScriptsForGameObjects.Car
                         }
 
                         // Checking for contact with the upper bound.
-                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0) 
+                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
                         // Checking for contact with the lower bound.
-                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0) 
+                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
@@ -111,12 +106,12 @@ namespace ScriptsForGameObjects.Car
             rigidbody.MovePosition(new Vector3(targetPlanePosition.x, targetPlanePosition.y, targetZPosition));
         }
 
-        IEnumerator IncreaseSpeed()
+        private IEnumerator IncreaseSpeed()
         {
             while (true)
             {
                 ForwardSpeed += accelerationFactor;
-                yield return new WaitForSeconds(gapBetweenAccelerations); // wait 6 seconds
+                yield return new WaitForSeconds(gapBetweenAccelerations);
             }
         }
     }

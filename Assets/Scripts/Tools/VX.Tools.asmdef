@@ -2,9 +2,7 @@
     "name": "VX.Tools",
     "references": [],
     "includePlatforms": [],
-    "excludePlatforms": [
-        "Android"
-    ],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
