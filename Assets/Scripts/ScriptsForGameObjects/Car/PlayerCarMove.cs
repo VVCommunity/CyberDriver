@@ -1,4 +1,5 @@
 ﻿using Core;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -7,14 +8,30 @@ namespace ScriptsForGameObjects.Car
     public class PlayerCarMove : MonoBehaviour
     {
         [SerializeField]
-        private float maxPlaneSpeed;
+        private float maxPlaneSpeed = 20f;
         [SerializeField]
-        private float maxSpeedTouchLength;
+        private float maxSpeedTouchLength = 200f;
         [SerializeField]
-        private float forwardSpeed;
-
+        private float forwardSpeed = 20f;
+        [SerializeField]
+        private float accelerationFactor = 0.5f;
+        [SerializeField]
+        private float gapBetweenAccelerations = 6f;
         [SerializeField]
         private Transform body;
+
+        public float ForwardSpeed
+        {
+            get => forwardSpeed;
+            set
+            {
+                forwardSpeed = value;
+                if (forwardSpeed < 0)
+                {
+                    forwardSpeed = 0;
+                }
+            }
+        }
 
         private float approximationFactor;
 
@@ -23,29 +40,24 @@ namespace ScriptsForGameObjects.Car
         private Vector2 targetPlanePosition;
         private Vector2 touchStartPosition;
 
-        public void Awake()
+        private void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Start()
+        private void Start()
         {
             approximationFactor = 90f / (GameManager.DistanceBetweenWalls / 2);
             targetPlanePosition = new Vector2(transform.position.x, transform.position.y);
+            StartCoroutine(IncreaseSpeed());
         }
 
-        public void FixedUpdate()
+        private void FixedUpdate()
         {
             var x = transform.position.x;
-            /* 
-             * // Semicircular movement of the machine
-             * var vector = transform.position;
-             * vector.y += System.Math.Abs(x / 2);
-             * transform.position = vector;
-             */
             body.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, approximationFactor * x));
             // Define forward target position.
-            var targetZPosition = transform.position.z + ( forwardSpeed * Time.fixedDeltaTime);
+            var targetZPosition = transform.position.z + (ForwardSpeed * Time.fixedDeltaTime);
             // Define plane target position.
             if (Input.touchCount > 0)
             {
@@ -75,12 +87,12 @@ namespace ScriptsForGameObjects.Car
                         }
 
                         // Checking for contact with the upper bound.
-                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0) 
+                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
                         // Checking for contact with the lower bound.
-                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0) 
+                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
@@ -91,6 +103,15 @@ namespace ScriptsForGameObjects.Car
             }
             // Move to target position.
             rigidbody.MovePosition(new Vector3(targetPlanePosition.x, targetPlanePosition.y, targetZPosition));
+        }
+
+        private IEnumerator IncreaseSpeed()
+        {
+            while (true)
+            {
+                ForwardSpeed += accelerationFactor;
+                yield return new WaitForSeconds(gapBetweenAccelerations);
+            }
         }
     }
 }
