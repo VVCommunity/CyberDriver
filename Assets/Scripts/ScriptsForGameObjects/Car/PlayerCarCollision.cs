@@ -1,6 +1,6 @@
-﻿using ScriptsForGameObjects.Car;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Core.Abstractions;
+using Assets.Scripts.Core.Entities;
+using ScriptsForGameObjects.Car;
 using UnityEngine;
 
 public class PlayerCarCollision : MonoBehaviour
@@ -12,10 +12,21 @@ public class PlayerCarCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle"))
+        var tag = other.gameObject.tag;
+        if (tag == "Obstacle")
         {
             playerCarMoveScript.ForwardSpeed -= deceleration;
             Destroy(other.gameObject);
+        }
+        else if (tag == "Cargo")
+        {
+            // Add one cargo to the cargo counter in the car manager
+            // var cargo = other.gameObject;
+            // cargo.GetComponent<ICargo>().Condition = CargoCondition.Caught;
+            // cargo.GetComponent<Rigidbody>().isKinematic = true;
+            // cargo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            // cargo.transform.parent = transform.parent;
+            // for next task...
         }
     }
 }

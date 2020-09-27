@@ -1,4 +1,6 @@
-﻿using Core.Abstractions;
+﻿using Assets.Scripts.Core.Abstractions;
+using Assets.Scripts.Core.Entities;
+using Core.Abstractions;
 using EasyButtons;
 using System;
 using System.Collections.Generic;
@@ -157,6 +159,16 @@ namespace Core.LevelConstructing
                 }
             }
             return -1;
+        }
+
+        [Button]
+        public static void GetCargoExample()
+        {
+            var box = CargoManager.GetCargoReadyForDrop();
+            box.GetComponent<ICargo>().Condition = CargoCondition.Drop;
+            var v = playerCarTransform.position += new Vector3(0, 10, 10);
+            box.transform.position = v;
+            box.SetActive(true);
         }
     }
 }
