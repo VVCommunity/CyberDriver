@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7e4bd1202562d49ab277988c48c8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeGapForCargoSpawn: 2
   prefabsToSpawn:
   - {fileID: 7975842401122975312, guid: b837dc70298fa344f83d948b5840a02e, type: 3}
 --- !u!224 &387132386 stripped

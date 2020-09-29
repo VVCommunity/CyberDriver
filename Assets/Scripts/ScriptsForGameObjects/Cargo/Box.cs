@@ -7,22 +7,13 @@ public class Box : MonoBehaviour, ICargo
     [SerializeField]
     private int worth;
     public int Worth { get => worth; }
-    [SerializeField]
-    private CargoCondition condition;
-    public CargoCondition Condition 
-    { 
-        get => condition; 
-        set 
-        {
-            condition = value;
-        } 
-    }
+    public CargoState Condition { get; set; }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Land"))
         {
-            Condition = CargoCondition.ReadyToDrop;
+            Condition = CargoState.ReadyToDrop;
             gameObject.SetActive(false);
         }
     }

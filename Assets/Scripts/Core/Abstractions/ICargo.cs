@@ -10,7 +10,7 @@ namespace Assets.Scripts.Core.Abstractions
 {
     public interface ICargo
     {
-        CargoCondition Condition { get; set; }
+        CargoState Condition { get; set; }
         int Worth { get; }
         GameObject gameObject { get; }
     }

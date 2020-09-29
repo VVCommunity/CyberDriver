@@ -160,15 +160,5 @@ namespace Core.LevelConstructing
             }
             return -1;
         }
-
-        [Button]
-        public static void GetCargoExample()
-        {
-            var box = CargoManager.GetCargoReadyForDrop();
-            box.GetComponent<ICargo>().Condition = CargoCondition.Drop;
-            var v = playerCarTransform.position += new Vector3(0, 10, 10);
-            box.transform.position = v;
-            box.SetActive(true);
-        }
     }
 }

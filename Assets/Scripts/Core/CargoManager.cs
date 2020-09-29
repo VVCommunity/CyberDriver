@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Core.Abstractions;
 using Assets.Scripts.Core.Entities;
+using EasyButtons;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,27 +9,62 @@ using UnityEngine;
 public class CargoManager : MonoBehaviour
 {
     [SerializeField]
+    private float timeGapForCargoSpawn = 10f;
+    [SerializeField]
     private List<GameObject> prefabsToSpawn;
     private static List<GameObject> prefabs = new List<GameObject>();
     private static List<ICargo> cargoObjects = new List<ICargo>();
 
     private void Start()
     {
-        // Unfortunately, we cannot see static fields in the inspector :c
         prefabs = prefabsToSpawn;
+        StartAddCargoTimer();
     }
 
-    public static GameObject GetCargoReadyForDrop()
+    public void StartAddCargoTimer()
     {
-        var cargo = cargoObjects.FirstOrDefault(c => c.Condition == CargoCondition.ReadyToDrop);
-        if (cargo == null)
+        StartCoroutine(PreparingCargoForDrop());
+    }
+
+    public void StopAddCargoTimer()
+    {
+        StopCoroutine(PreparingCargoForDrop());
+    }
+
+    private IEnumerator PreparingCargoForDrop()
+    {
+        while (true)
         {
-            var index = Random.Range(0, prefabs.Count);
-            var obj = Instantiate(prefabs[index]);
-            obj.SetActive(false);
-            cargoObjects.Add(obj.GetComponent<ICargo>());
-            return obj;
+            yield return new WaitForSeconds(timeGapForCargoSpawn);
+            AddNewCargo();
         }
-        return cargo.gameObject;
+    }
+
+    private void AddNewCargo()
+    {
+        var index = Random.Range(0, prefabs.Count);
+        var obj = Instantiate(prefabs[index]);
+        obj.SetActive(false);
+        cargoObjects.Add(obj.GetComponent<ICargo>());
+    }
+
+    public GameObject GetCargoReadyForDrop()
+    {
+        var cargo = cargoObjects.FirstOrDefault(c => c.Condition == CargoState.ReadyToDrop);
+        return cargo?.gameObject;
+    }
+
+    [Button]
+    public void GetCargoExample()
+    {
+        var box = GetCargoReadyForDrop();
+        if (box == null)
+        {
+            return;
+        }
+        box.GetComponent<ICargo>().Condition = CargoState.Drop;
+        var v = new Vector3(0, 10, 10);
+        box.transform.position = v;
+        box.SetActive(true);
     }
 }

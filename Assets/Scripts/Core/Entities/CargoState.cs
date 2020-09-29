@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Core.Entities
 {
-    public enum CargoCondition
+    public enum CargoState
     {
         ReadyToDrop,
         Drop,
