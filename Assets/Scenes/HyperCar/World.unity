@@ -1457,6 +1457,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3917141643424573456, guid: fe003cbb05588634b8a86060a4bf4b3b, type: 3}
+      propertyPath: m_TagString
+      value: Police
+      objectReference: {fileID: 0}
     - target: {fileID: 3917141644909718153, guid: fe003cbb05588634b8a86060a4bf4b3b, type: 3}
       propertyPath: target
       value: 
@@ -1464,6 +1468,10 @@ PrefabInstance:
     - target: {fileID: 4223552106993719250, guid: fe003cbb05588634b8a86060a4bf4b3b, type: 3}
       propertyPath: m_Name
       value: Police
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223552106993719250, guid: fe003cbb05588634b8a86060a4bf4b3b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe003cbb05588634b8a86060a4bf4b3b, type: 3}

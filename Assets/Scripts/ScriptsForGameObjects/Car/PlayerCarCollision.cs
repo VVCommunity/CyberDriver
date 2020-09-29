@@ -15,10 +15,9 @@ public class PlayerCarCollision : MonoBehaviour
             playerCarMoveScript.ForwardSpeed -= deceleration;
             Destroy(other.gameObject);
         }
-        else if (other.gameObject.CompareTag("Police"))
+        if (other.gameObject.CompareTag("Police"))
         {
             // GAME OVER
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 }
