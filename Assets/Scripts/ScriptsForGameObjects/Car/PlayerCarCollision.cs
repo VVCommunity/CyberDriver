@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Core.Abstractions;
-using Assets.Scripts.Core.Entities;
-using ScriptsForGameObjects.Car;
+﻿using ScriptsForGameObjects.Car;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCarCollision : MonoBehaviour
 {
@@ -12,13 +11,13 @@ public class PlayerCarCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var tag = other.gameObject.tag;
-        if (tag == "Obstacle")
+        if (other.gameObject.CompareTag("Obstacle"))
         {
             playerCarMoveScript.ForwardSpeed -= deceleration;
             Destroy(other.gameObject);
+            return;
         }
-        else if (tag == "Cargo")
+        if (other.gameObject.CompareTag("Cargo"))
         {
             // Add one cargo to the cargo counter in the car manager
             // var cargo = other.gameObject;
@@ -27,6 +26,13 @@ public class PlayerCarCollision : MonoBehaviour
             // cargo.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             // cargo.transform.parent = transform.parent;
             // for next task...
+            return;
+        }
+        if (other.gameObject.CompareTag("Police"))
+        {
+            Debug.Log("GAME OVER!");
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
         }
     }
 }
