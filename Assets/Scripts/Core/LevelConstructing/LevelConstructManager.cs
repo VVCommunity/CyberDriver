@@ -1,4 +1,6 @@
-﻿using Core.Abstractions;
+﻿using Assets.Scripts.Core.Abstractions;
+using Assets.Scripts.Core.Entities;
+using Core.Abstractions;
 using EasyButtons;
 using System;
 using System.Collections.Generic;

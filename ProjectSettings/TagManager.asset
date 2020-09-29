@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Obstacle
   - Let
+  - Land
+  - Cargo
+  - CarTrunk
   layers:
   - Default
   - TransparentFX
