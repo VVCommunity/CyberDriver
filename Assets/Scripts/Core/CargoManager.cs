@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Core.Abstractions;
 using Assets.Scripts.Core.Entities;
+using Core;
 using EasyButtons;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ public class CargoManager : MonoBehaviour
     {
         prefabs = prefabsToSpawn;
         StartAddCargoTimer();
+        GameManager.OnGamePaused += () => StopAddCargoTimer();
+        GameManager.OnGameResumed += () => StartAddCargoTimer();
     }
 
     public void StartAddCargoTimer()
