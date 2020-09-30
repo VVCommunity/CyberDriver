@@ -1,6 +1,5 @@
 ﻿using ScriptsForGameObjects.Car;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerCarCollision : MonoBehaviour
 {
@@ -31,7 +30,6 @@ public class PlayerCarCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Police"))
         {
             Debug.Log("GAME OVER!");
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
         }
     }
