@@ -1,20 +1,25 @@
-﻿using Assets.Scripts.Core.Abstractions;
-using Assets.Scripts.Core.Entities;
+﻿using Core.Abstractions;
+using Core.Entities;
+using System;
 using UnityEngine;
 
-public class Box : MonoBehaviour, ICargo
+namespace ScriptsForGameObjects.Cargo
 {
-    [SerializeField]
-    private int worth;
-    public int Worth { get => worth; }
-    public CargoState Condition { get; set; }
-
-    void OnCollisionEnter(Collision collision)
+    public class Box : MonoBehaviour, ICargo
     {
-        if (collision.gameObject.CompareTag("Land"))
+        [SerializeField]
+        private int worth;
+        public int Worth { get => worth; }
+        public CargoState State { get; set; }
+
+        public void OnCollisionEnter(Collision collision)
         {
-            Condition = CargoState.ReadyToDrop;
-            gameObject.SetActive(false);
+            var tag = collision.gameObject.tag;
+            if (tag.Equals("land", StringComparison.InvariantCultureIgnoreCase))
+            {
+                State = CargoState.ReadyToDrop;
+                gameObject.SetActive(false);
+            }
         }
     }
 }

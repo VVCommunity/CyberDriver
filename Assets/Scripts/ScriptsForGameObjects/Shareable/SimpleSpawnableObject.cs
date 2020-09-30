@@ -1,7 +1,8 @@
 ﻿using Core.Abstractions;
+using Tools.Common;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptsForGameObjects.Shareable
+namespace ScriptsForGameObjects.Shareable
 {
     public class SimpleSpawnableObject : MonoBehaviour, ISpawnable
     {
@@ -9,14 +10,17 @@ namespace Assets.Scripts.ScriptsForGameObjects.Shareable
 
         public float Depth => 0;
 
-        public void Awake()
+        private new Cached<Transform> transform;
+
+        private void Awake()
         {
-            position = transform.position;
+            transform = new Cached<Transform>(gameObject);
+            position = transform.Value.position;
         }
 
         public GameObject Spawn(float? z = null)
         {
-            transform.position = position;
+            transform.Value.position = position;
             return gameObject;
         }
 

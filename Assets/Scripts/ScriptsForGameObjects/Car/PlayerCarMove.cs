@@ -1,6 +1,7 @@
 ﻿using Core;
 using System.Collections;
 using System.Linq;
+using Tools.Common;
 using UnityEngine;
 
 namespace ScriptsForGameObjects.Car
@@ -35,29 +36,31 @@ namespace ScriptsForGameObjects.Car
 
         private float approximationFactor;
 
-        new private Rigidbody rigidbody;
+        private new Cached<Rigidbody> rigidbody;
+        private new Cached<Transform> transform;
 
         private Vector2 targetPlanePosition;
         private Vector2 touchStartPosition;
 
         private void Awake()
         {
-            rigidbody = GetComponent<Rigidbody>();
+            rigidbody = new Cached<Rigidbody>(gameObject);
+            transform = new Cached<Transform>(gameObject);
         }
 
         private void Start()
         {
             approximationFactor = 90f / (GameManager.DistanceBetweenWalls / 2);
-            targetPlanePosition = new Vector2(transform.position.x, transform.position.y);
+            targetPlanePosition = new Vector2(transform.Value.position.x, transform.Value.position.y);
             StartCoroutine(IncreaseSpeed());
         }
 
         private void FixedUpdate()
         {
-            var x = transform.position.x;
-            body.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, approximationFactor * x));
+            var x = transform.Value.position.x;
+            body.localRotation = Quaternion.Euler(new Vector3(0, 0, approximationFactor * x));
             // Define forward target position.
-            var targetZPosition = transform.position.z + (ForwardSpeed * Time.fixedDeltaTime);
+            var targetZPosition = transform.Value.position.z + (ForwardSpeed * Time.fixedDeltaTime);
             // Define plane target position.
             if (Input.touchCount > 0)
             {
@@ -76,33 +79,34 @@ namespace ScriptsForGameObjects.Car
                         }
 
                         // Checking for contact with the left wall.
-                        if (transform.position.x >= GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x > 0)
+                        if (transform.Value.position.x >= GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x > 0)
                         {
                             coercedDeltaTouch.x = 0;
                         }
                         // Checking for contact with the right wall.
-                        else if (transform.position.x <= -GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x < 0)
+                        else if (transform.Value.position.x <= -GameManager.DistanceBetweenWalls / 2 && coercedDeltaTouch.x < 0)
                         {
                             coercedDeltaTouch.x = 0;
                         }
 
                         // Checking for contact with the upper bound.
-                        if (transform.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0)
+                        if (transform.Value.position.y >= GameManager.MaxHeight && coercedDeltaTouch.y > 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
                         // Checking for contact with the lower bound.
-                        else if (transform.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0)
+                        else if (transform.Value.position.y <= GameManager.MinHeight && coercedDeltaTouch.y < 0)
                         {
                             coercedDeltaTouch.y = 0;
                         }
 
-                        targetPlanePosition += (maxPlaneSpeed * Time.fixedDeltaTime) * coercedDeltaTouch;
+                        targetPlanePosition += maxPlaneSpeed * Time.fixedDeltaTime * coercedDeltaTouch;
                         break;
                 }
             }
+
             // Move to target position.
-            rigidbody.MovePosition(new Vector3(targetPlanePosition.x, targetPlanePosition.y, targetZPosition));
+            rigidbody.Value.MovePosition(new Vector3(targetPlanePosition.x, targetPlanePosition.y, targetZPosition));
         }
 
         private IEnumerator IncreaseSpeed()
