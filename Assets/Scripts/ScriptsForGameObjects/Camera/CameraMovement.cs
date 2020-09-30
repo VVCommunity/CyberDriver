@@ -17,7 +17,7 @@ namespace ScriptsForGameObjects.Camera
         }
 
         // Можно выполнять эти действия в Update.
-        public void LateUpdate() 
+        public void LateUpdate()
         {
             var pos = new Vector3
             {
