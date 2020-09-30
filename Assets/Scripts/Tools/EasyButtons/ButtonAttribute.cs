@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasyButtons
+namespace Tools.EasyButtons
 {
     public enum ButtonMode
     {

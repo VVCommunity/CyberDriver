@@ -4,8 +4,9 @@ using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
-namespace EasyButtons
+namespace Tools.EasyButtons
 {
+#if UNITY_EDITOR
     /// <summary>
     /// Custom inspector for Object including derived classes.
     /// </summary>
@@ -47,4 +48,5 @@ namespace EasyButtons
             DrawDefaultInspector();
         }
     }
+#endif
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EasyButtons
+namespace Tools.EasyButtons
 {
     [CreateAssetMenu(fileName = "ScriptableObjectExample.asset", menuName = "EasyButtons/ScriptableObjectExample")]
     public class ScriptableObjectExample : ScriptableObject
