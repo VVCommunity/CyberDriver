@@ -1,3 +1,15 @@
-﻿{
-	"name": "GUI"
+{
+    "name": "GUI",
+    "references": [
+        "GUID:db12423499a031f43ae1f87382b8fc7d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

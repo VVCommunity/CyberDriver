@@ -1,4 +1,5 @@
 ﻿using Core.Abstractions;
+using Tools.Common;
 using UnityEngine;
 
 namespace ScriptsForGameObjects.LevelConstructing
@@ -11,9 +12,12 @@ namespace ScriptsForGameObjects.LevelConstructing
 
         public float Z { get; private set; }
 
+        private new Cached<Transform> transform;
+
         public void Awake()
         {
             Depth = depth;
+            transform = new Cached<Transform>(gameObject);
         }
 
         public IChunk CreateNewChunkCopyUnderTheParent(GameObject parent)
@@ -28,7 +32,7 @@ namespace ScriptsForGameObjects.LevelConstructing
             if (z.HasValue)
             {
                 Z = z.Value;
-                transform.position = new Vector3(0, 0, Z);
+                transform.Value.position = new Vector3(0, 0, Z);
                 gameObject.SetActive(true);
                 return gameObject;
             }

@@ -1,10 +1,8 @@
-﻿using Assets.Scripts.Core.Abstractions;
-using Assets.Scripts.Core.Entities;
-using Core.Abstractions;
-using EasyButtons;
+﻿using Core.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tools.EasyButtons;
 using Unity.Mathematics;
 using UnityEngine;
 

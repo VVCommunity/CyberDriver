@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Tools.Common;
+using UnityEngine;
 
 namespace ScriptsForGameObjects.Camera
 {
@@ -6,17 +7,22 @@ namespace ScriptsForGameObjects.Camera
     {
         [SerializeField]
         private GameObject player;
+        private Cached<Transform> playerTransform;
+
+        private new Cached<Transform> transform;
 
         private Vector3 offSet;
 
         public void Awake()
         {
-            offSet = transform.position - player.transform.position;
+            transform = new Cached<Transform>(gameObject);
+            playerTransform = new Cached<Transform>(player);
+            offSet = transform.Value.position - playerTransform.Value.position;
         }
 
         public void FixedUpdate()
         {
-            transform.position = offSet + player.transform.position;
+            transform.Value.position = offSet + playerTransform.Value.position;
         }
     }
 }

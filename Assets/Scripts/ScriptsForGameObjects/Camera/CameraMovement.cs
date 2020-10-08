@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Tools.Common;
+using UnityEngine;
 
 namespace ScriptsForGameObjects.Camera
 {
@@ -6,26 +7,30 @@ namespace ScriptsForGameObjects.Camera
     {
         [SerializeField]
         private GameObject car;
+        private Cached<Transform> carTransform;
+
+        private new Cached<Transform> transform;
 
         private Vector3 offSet;
         private float startYInCar;
 
-        public void Start()
+        private void Awake()
         {
-            startYInCar = car.transform.position.y;
-            offSet = transform.position - car.transform.position;
+            carTransform = new Cached<Transform>(car);
+            transform = new Cached<Transform>(gameObject);
+            startYInCar = carTransform.Value.position.y;
+            offSet = transform.Value.position - carTransform.Value.position;
         }
 
         // Можно выполнять эти действия в Update.
         public void LateUpdate()
         {
-            var pos = new Vector3
+            transform.Value.position = new Vector3
             {
-                z = car.transform.position.z + offSet.z,
-                y = car.transform.position.y / 2 + startYInCar,
-                x = car.transform.position.x / 2
+                z = carTransform.Value.position.z + offSet.z,
+                y = carTransform.Value.position.y / 2 + startYInCar,
+                x = carTransform.Value.position.x / 2,
             };
-            transform.position = pos;
         }
     }
 }
