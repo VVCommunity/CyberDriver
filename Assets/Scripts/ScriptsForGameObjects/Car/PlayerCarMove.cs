@@ -1,5 +1,4 @@
 ﻿using Core;
-using System.Collections;
 using System.Linq;
 using Tools.Common;
 using UnityEngine;
@@ -15,11 +14,10 @@ namespace ScriptsForGameObjects.Car
         [SerializeField]
         private float forwardSpeed = 20f;
         [SerializeField]
-        private float accelerationFactor = 0.5f;
-        [SerializeField]
-        private float gapBetweenAccelerations = 6f;
-        [SerializeField]
         private Transform body;
+
+        [SerializeField]
+        public float acceleration = 0.1f;
 
         public float ForwardSpeed
         {
@@ -52,7 +50,6 @@ namespace ScriptsForGameObjects.Car
         {
             approximationFactor = 90f / (GameManager.DistanceBetweenWalls / 2);
             targetPlanePosition = new Vector2(transform.Value.position.x, transform.Value.position.y);
-            StartCoroutine(IncreaseSpeed());
         }
 
         private void FixedUpdate()
@@ -107,15 +104,9 @@ namespace ScriptsForGameObjects.Car
 
             // Move to target position.
             rigidbody.Value.MovePosition(new Vector3(targetPlanePosition.x, targetPlanePosition.y, targetZPosition));
-        }
 
-        private IEnumerator IncreaseSpeed()
-        {
-            while (true)
-            {
-                ForwardSpeed += accelerationFactor;
-                yield return new WaitForSeconds(gapBetweenAccelerations);
-            }
+            // Speed up.
+            ForwardSpeed += acceleration * Time.fixedDeltaTime;
         }
     }
 }
