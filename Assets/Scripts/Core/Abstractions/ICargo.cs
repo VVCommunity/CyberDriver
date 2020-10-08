@@ -1,16 +1,11 @@
-﻿using Assets.Scripts.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Entities;
 using UnityEngine;
 
-namespace Assets.Scripts.Core.Abstractions
+namespace Core.Abstractions
 {
     public interface ICargo
     {
-        CargoState Condition { get; set; }
+        CargoState State { get; set; }
         int Worth { get; }
         GameObject gameObject { get; }
     }

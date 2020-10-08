@@ -1,6 +1,6 @@
 ﻿using Core.LevelConstructing;
-using EasyButtons;
 using System;
+using Tools.EasyButtons;
 using UnityEngine;
 
 namespace Core

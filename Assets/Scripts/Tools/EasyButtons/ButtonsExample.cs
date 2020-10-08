@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EasyButtons
+namespace Tools.EasyButtons
 {
     public class ButtonsExample : MonoBehaviour
     {

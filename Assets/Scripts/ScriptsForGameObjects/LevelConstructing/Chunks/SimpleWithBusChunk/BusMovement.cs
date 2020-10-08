@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Tools.Common;
+using UnityEngine;
 
 namespace ScriptsForGameObjects.LevelConstructing.Chunks.SimpleWithBusChunk
 {
@@ -13,15 +14,18 @@ namespace ScriptsForGameObjects.LevelConstructing.Chunks.SimpleWithBusChunk
 
         private float busSpeed;
 
+        private new Cached<Transform> transform;
+
         public void Awake()
         {
+            transform = new Cached<Transform>(gameObject);
             busSpeed = Random.Range(minBusSpeed, maxBusSpeed);
-            transform.Translate(-Random.Range(0, maxXOffset), 0, 0);
+            transform.Value.Translate(-Random.Range(0, maxXOffset), 0, 0);
         }
 
         public void FixedUpdate()
         {
-            transform.Translate(0, 0, busSpeed * Time.fixedDeltaTime);
+            transform.Value.Translate(0, 0, busSpeed * Time.fixedDeltaTime);
         }
     }
 }

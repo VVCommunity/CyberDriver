@@ -1,21 +1,12 @@
 {
     "name": "ScriptsForGameObjects",
     "references": [
-        "GUID:734d92eba21c94caba915361bd5ac177",
-        "GUID:72bdb08d6f1ec4e438a34c487919ff6d",
-        "GUID:27d274364731e5b45a7cdaf0b7e34389",
-        "GUID:8819f35a0fc84499b990e90a4ca1911f",
         "GUID:8a2eafa29b15f444eb6d74f94a930e1d",
-        "GUID:63afb046c8423dd448ae7aba042ea63d",
-        "GUID:e00140a815de944528348782854abe39",
         "GUID:d8b63aba1907145bea998dd612889d6b",
         "GUID:e0cd26848372d4e5c891c569017e11f1",
-        "GUID:7a450cf7ca9694b5a8bfa3fd83ec635a",
-        "GUID:a5baed0c9693541a5bd947d336ec7659",
-        "GUID:63672137b6d5c4749ba82ef513dc5e20",
         "GUID:2665a8d13d1b3f18800f46e256720795",
-        "GUID:95129fa2931be83479e523431111cf40",
-        "GUID:c8407ad066877e546b3ea450b2e65f35"
+        "GUID:c8407ad066877e546b3ea450b2e65f35",
+        "GUID:db12423499a031f43ae1f87382b8fc7d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

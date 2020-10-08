@@ -1,5 +1,6 @@
 ﻿using Core;
 using System.Collections;
+using Tools.Common;
 using UnityEngine;
 
 namespace ScriptsForGameObjects.Police
@@ -19,11 +20,13 @@ namespace ScriptsForGameObjects.Police
 
         private float approximationFactor;
 
-        new private Rigidbody rigidbody;
+        private new Cached<Rigidbody> rigidbody;
+        private new Cached<Transform> transform;
 
         private void Awake()
         {
-            rigidbody = GetComponent<Rigidbody>();
+            rigidbody = new Cached<Rigidbody>(gameObject);
+            transform = new Cached<Transform>(gameObject);
         }
 
         private void Start()
@@ -34,10 +37,10 @@ namespace ScriptsForGameObjects.Police
 
         private void FixedUpdate()
         {
-            var x = transform.position.x;
-            body.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, approximationFactor * x));
-            var targetZPosition = transform.position.z + forwardSpeed * Time.fixedDeltaTime;
-            rigidbody.MovePosition(new Vector3(target.position.x, target.position.y, targetZPosition));
+            var x = transform.Value.position.x;
+            body.localRotation = Quaternion.Euler(new Vector3(0, 0, approximationFactor * x));
+            var targetZPosition = transform.Value.position.z + forwardSpeed * Time.fixedDeltaTime;
+            rigidbody.Value.MovePosition(new Vector3(target.position.x, target.position.y, targetZPosition));
         }
 
         private IEnumerator IncreaseSpeed()
