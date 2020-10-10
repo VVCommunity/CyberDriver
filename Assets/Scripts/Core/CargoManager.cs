@@ -2,7 +2,6 @@
 using Core.Entities;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Core
@@ -12,7 +11,10 @@ namespace Core
         [SerializeField]
         private float timeGapForCargoSpawn = 10f;
         [SerializeField]
+        private float maxCargosCountInSameTime = 8;
+        [SerializeField]
         private List<GameObject> prefabsToSpawn;
+
         private static List<GameObject> prefabs = new List<GameObject>();
         private static readonly List<ICargo> cargos = new List<ICargo>();
 
@@ -38,8 +40,11 @@ namespace Core
         {
             while (true)
             {
-                yield return new WaitForSeconds(timeGapForCargoSpawn);
-                AddNewCargo();
+                if (cargos.Count < maxCargosCountInSameTime)
+                {
+                    yield return new WaitForSeconds(timeGapForCargoSpawn);
+                    AddNewCargo();
+                }
             }
         }
 
@@ -51,9 +56,9 @@ namespace Core
             cargos.Add(obj.GetComponent<ICargo>());
         }
 
-        public GameObject GetCargoReadyForDrop()
+        public static ICargo GetCargoReadyForDrop()
         {
-            return cargos.FirstOrDefault(c => c.State == CargoState.ReadyToDrop)?.gameObject;
+            return cargos.Find(c => c.State == CargoState.ReadyToDrop);
         }
     }
 }

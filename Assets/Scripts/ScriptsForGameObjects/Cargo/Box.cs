@@ -1,6 +1,7 @@
 ﻿using Core.Abstractions;
 using Core.Entities;
 using System;
+using Tools.Common;
 using UnityEngine;
 
 namespace ScriptsForGameObjects.Cargo
@@ -11,6 +12,14 @@ namespace ScriptsForGameObjects.Cargo
         private int worth;
         public int Worth { get => worth; }
         public CargoState State { get; set; }
+
+        private Cached<Rigidbody> cachedRigidbody;
+        public new Rigidbody rigidbody => cachedRigidbody.Value;
+
+        public void Awake()
+        {
+            cachedRigidbody = new Cached<Rigidbody>(gameObject);
+        }
 
         public void OnCollisionEnter(Collision collision)
         {

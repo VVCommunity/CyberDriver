@@ -8,5 +8,6 @@ namespace Core.Abstractions
         CargoState State { get; set; }
         int Worth { get; }
         GameObject gameObject { get; }
+        Rigidbody rigidbody { get; }
     }
 }
